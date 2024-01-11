@@ -1,13 +1,12 @@
 package UIManager;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputReader {
     private static final Scanner sc = new Scanner(System.in);
     private static final String stringInputExceptionMessage = "잘못된 입력입니다. 다시 입력해주세요:";
-    public static int gerOrderNumber(int numbersOfOptions) {
+    public static int gerOptionNumber(int numbersOfOptions) {
         int num;
 
         try{
@@ -17,7 +16,7 @@ public class InputReader {
             }
         }catch(InputMismatchException i){
             System.out.print(stringInputExceptionMessage);
-            num = gerOrderNumber(numbersOfOptions);
+            num = gerOptionNumber(numbersOfOptions);
         }
 
         return num;
@@ -49,28 +48,28 @@ public class InputReader {
         return subjectName;
     }
 
-    public static boolean getTrue() {
-        Boolean oneIsTrue;
+    public static boolean getBoolean() {
+        boolean oneIsTrue;
 
         try{
             oneIsTrue = (sc.nextInt()==1);
             return oneIsTrue;
         }catch(InputMismatchException i){
             System.out.print(stringInputExceptionMessage);
-            oneIsTrue = getTrue();
+            oneIsTrue = getBoolean();
         }
 
         return oneIsTrue;
     }
 
-    public static int getId() {
+    public static int getStudentId() {
         int num;
 
         try{
             num = sc.nextInt();
         }catch(InputMismatchException i){
             System.out.print(stringInputExceptionMessage);
-            num = getId();
+            num = getStudentId();
         }
 
         return num;

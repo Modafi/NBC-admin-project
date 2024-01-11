@@ -1,14 +1,16 @@
 package UIManager;
 
+import forDelete.Student;
+
 public class View {
-    public void showHeader(){
+    public void showMainMenuHeader(){
         System.out.println("""
                     ==================================
                     내일배움캠프 관리 프로그램을 실행합니다.
                     """);
     }
 
-    public void showMainMenu(){
+    public void showMainMenuOptions(){
         System.out.println("""
                 1. 수강생 관리
                 2. 점수 관리
@@ -42,11 +44,11 @@ public class View {
                     """);
     }
 
-    public void showOrdertoTypeStudentName() {
+    public void showOrderToTypeStudentName() {
         System.out.print("등록하실 수강생의 이름을 입력하세요 :");
     }
 
-    public void showOrdertoTypeStudentSubject() {
+    public void showOrderToTypeStudentSubject() {
         System.out.print("수강생이 수강할 과목을 입력하세요 :");
     }
     public void showAskContinue() {
@@ -63,10 +65,8 @@ public class View {
                     수강생 목록을 조회하겠습니다.
                     """);
     }
-    public void showStudentInformation(String student) {
-        int id = 3;
-        String studentName = student;
-        System.out.println(id+".   "+studentName);
+    public void showStudentInformation(Student student) {
+        System.out.println(student.studentId+".   "+student.studentName);
     }
 
 
@@ -94,4 +94,8 @@ public class View {
     public void showOrderToTypeStudentId() {
         System.out.print("\n관리할 수강생의 Id를 입력하세요:");
     }
+
+//    public void showOrderTodTypeStudentId() {
+//        System.out.print("\n관리할 수강생의 Id를 입력하세요:");
+//    }
 }
