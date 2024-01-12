@@ -74,4 +74,36 @@ public class InputReader {
 
         return num;
     }
+
+    public static double getScore() {
+        double score;
+
+        try{
+            score = sc.nextInt();
+            if(score>100||score<0){
+                throw new InputMismatchException();
+            }
+        }catch(InputMismatchException i){
+            System.out.print(stringInputExceptionMessage);
+            score = getStudentId();
+        }
+
+        return score;
+    }
+
+    public static int getScoreIdx() {
+        int idx;
+
+        try{
+            idx = sc.nextInt();
+            if(idx<1||idx>10){
+                throw new InputMismatchException();
+            }
+        }catch(InputMismatchException i){
+            System.out.print(stringInputExceptionMessage);
+            idx = getStudentId();
+        }
+
+        return idx;
+    }
 }
