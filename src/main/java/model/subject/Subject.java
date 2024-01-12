@@ -1,6 +1,4 @@
-package subject;
-
-import model.subject.SubjectType;
+package model.subject;
 
 public class Subject {
     private final Long id;

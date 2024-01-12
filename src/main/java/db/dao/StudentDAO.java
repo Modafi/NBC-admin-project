@@ -1,6 +1,6 @@
 package db.dao;
 
-import camp.model.student.Student;
+import model.student.Student;
 import db.StudentDB;
 import db.dto.StudentDTO;
 import db.entity.StudentEntity;

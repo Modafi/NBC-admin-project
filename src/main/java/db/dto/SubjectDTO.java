@@ -1,18 +1,12 @@
-package db.entity;
+package db.dto;
 
-public class SubjectEntity {
-    private final Long id;
+public class SubjectDTO {
     private final String name;
     private final String subjectType;
 
-    public SubjectEntity(Long id, String name, String subjectType) {
-        this.id = id;
+    public SubjectDTO(String name, String subjectType) {
         this.name = name;
         this.subjectType = subjectType;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
