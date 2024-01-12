@@ -1,8 +1,5 @@
 package UIManager;
 
-import forDelete.Student;
-import forDelete.Subject;
-
 public class View {
     public void orderToTypeOptionNumber(){
         System.out.print("원하시는 관리 항목의 번호를 입력하세요 :");
@@ -44,8 +41,8 @@ public class View {
                     등록하실 수강생의 이름을 입력하세요 :
                     """);
     }
-    public void orderToTypeNewStudentSubject(String studentName) {
-        System.out.print(studentName+"님이 수강할 과목을 입력하세요 :");
+    public void orderToTypeNewStudentSubject() {
+        System.out.print("수강할 과목을 입력하세요 :");
     }
     public void showNotValidSubject() {
         System.out.print("유효하지 않는 과목 이름입니다. 다시 입력하세요 :");
@@ -64,7 +61,7 @@ public class View {
                     수강생 목록을 조회하겠습니다.
                     """);
     }
-    public void showStudentInformation(int studentId, String studentName) {
+    public void showStudentInformation(Long studentId, String studentName) {
         System.out.println(studentId+".   "+studentName);
     }
     public void showListIsFinish() {
@@ -77,15 +74,13 @@ public class View {
      */
 
     public void orderToTypeStudentId() {
-        System.out.println("""
-                    ==================================
-                    수강생 점수 등록 메뉴입니다.
-                    관리할 수강생의 Id를 입력하세요:
-                    """);
+        System.out.println("메인 메뉴로 나가고 싶으시면 0번을, " +
+                "아니면 관리할 수강생의 Id를 입력하세요 : ");
     }
     public void showNotValidStudentId() {
         System.out.print("유효하지 않는 수강생 ID 입니다." +
-                "\n관리할 수강생의 Id를 입력하세요:");
+                "\n메인 메뉴로 나가고 싶으시면 0번을, " +
+                "아니면 관리할 수강생의 Id를 입력하세요:");
     }
 
     public void showStudentEditHeader(String studentName) {
@@ -95,7 +90,7 @@ public class View {
     public void showSubject(String subjectName) {
         System.out.println(subjectName);
     }
-    public void orderToTypeSubjectForAddScore() {
+    public void orderToTypeSubject() {
         System.out.print("\n관리할 과목 이름을 입력하세요:");
     }
     public void orderToTypeScore(int ScoreIdx) {
@@ -128,5 +123,11 @@ public class View {
     }
     public void showGrade(int ScoreIdx, char grade) {
         System.out.println(ScoreIdx+"회차 : "+grade);
+    }
+
+    public void showAdditionalCheck() {
+        System.out.print("""
+                   ==================================
+                   종료를 원하시면 1번을 눌러주세요:""");
     }
 }

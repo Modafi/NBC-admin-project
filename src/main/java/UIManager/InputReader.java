@@ -62,11 +62,11 @@ public class InputReader {
         return oneIsTrue;
     }
 
-    public static int getStudentId() {
-        int num;
+    public static Long getStudentId() {
+        Long num;
 
         try{
-            num = sc.nextInt();
+            num = sc.nextLong();
         }catch(InputMismatchException i){
             System.out.print(stringInputExceptionMessage);
             num = getStudentId();
@@ -101,7 +101,7 @@ public class InputReader {
             }
         }catch(InputMismatchException i){
             System.out.print(stringInputExceptionMessage);
-            idx = getStudentId();
+            idx = getScoreIdx();
         }
 
         return idx;

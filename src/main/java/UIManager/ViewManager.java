@@ -1,12 +1,21 @@
 package UIManager;
 
-import forDelete.Student;
-import forDelete.Subject;
+import model.Score;
+import model.Student;
+import model.Subject;
 
 import java.util.ArrayList;
 
 public class ViewManager {
     private static final View view = new View();
+
+    /*
+
+
+    메뉴 모음 입니다.
+
+
+     */
 
     public static int getMenuOptions() {
         view.showMainMenu();
@@ -28,31 +37,37 @@ public class ViewManager {
 
         return InputReader.gerOptionNumber(4);
     }
+    public static boolean getFinishOptions() {
+        view.showAdditionalCheck();
 
+        return !InputReader.getBoolean();
+    }
+    /*
+
+
+    student 메뉴 모음 입니다.
+
+
+     */
     public static String getNewStudentName(){
         view.showAddStudentMenu();
         String studentName = InputReader.getStudentName();
         return studentName;
     }
 
-    public static String getStudentsSubject(Student student) {
-        view.orderToTypeNewStudentSubject(student.studentName);
+    public static String getSubjectNameForAdd() {
+        view.orderToTypeNewStudentSubject();
         String subjectName = InputReader.getSubjectName();
         return subjectName;
     }
 
-    public static String getStudentsSubjectValid(Student student) {
+    public static String getSubjectNameForAddValid() {
         view.showNotValidSubject();
         String subjectName = InputReader.getSubjectName();
         return subjectName;
     }
 
-    public static boolean getStudentsSubjectContinue(Student student) {
-        view.AskContinue();
-        return InputReader.getBoolean();
-    }
-
-    public static void showStudentsAddIsOver(Student student) {
+    public static void showStudentsAddIsOver() {
         view.showAddIsComplete();
     }
 
@@ -60,27 +75,35 @@ public class ViewManager {
         view.showStudentListHeader();
 
         for(Student student : studentsList){
-            view.showStudentInformation(student.studentId, student.studentName);
+            view.showStudentInformation(student.getId(), student.getName());
         }
 
         view.showListIsFinish();
     }
 
-    public static int getStudentIdForEdit(){
+    /*
+
+
+     scoreManager 가 관련되었습니다.
+
+
+     */
+
+    public static Long getStudentId(){
         view.orderToTypeStudentId();
         return InputReader.getStudentId();
     }
-    public static int getStudentIdForEditValid(){
+    public static Long getStudentIdValid(){
         view.showNotValidStudentId();
         return InputReader.getStudentId();
     }
 
-    public static String getSubjectEdit(Student student){
-        view.showStudentEditHeader(student.studentName);
+    public static String getSubjectName(Student student){
+        view.showStudentEditHeader(student.getName());
         for(Subject subject : student.getSubjectList()){
             view.showSubject(subject.getName());
         }
-        view.orderToTypeSubjectForAddScore();
+        view.orderToTypeSubject();
         return InputReader.getSubjectName();
     }
     public static double getScoreEdit(int ScoreIdx){
@@ -94,9 +117,12 @@ public class ViewManager {
 
     public static int getScoreEdit(Subject subject){
         view.showScoreEditHeader(subject.getName());
-//        for(Score score : subject.getScoreList()){
-//            view.showScore(ScoreIdx, score);
-//        }
+        for(int i=0; i<subject.getScoreList().length; i++){
+            if(subject.getScoreList()[i].getValue()!=-1){
+                view.showScore(i+1, subject.getScoreList()[i].getValue());
+            }
+
+        }
         view.orderToTypeScoreIdxForEdit();
         return InputReader.getScoreIdx();
     }
@@ -104,9 +130,14 @@ public class ViewManager {
     public static void showScoreList(Subject subject){
         view.showSubjectGradeHeader(subject.getName());
 
-//        for(Score score : subject.getScoreList()){
-//            view.showScore(ScoreIdx, grade);
-//        }
+        for(int i=0; i<subject.getScoreList().length; i++){
+            if(subject.getScoreList()[i].getValue()!=-1){
+                view.showScore(i+1, subject.getScoreList()[i].getValue());
+            }
+        }
+
         view.showListIsFinish();
     }
+
+
 }
