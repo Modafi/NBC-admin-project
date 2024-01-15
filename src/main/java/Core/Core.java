@@ -8,6 +8,7 @@ import db.dao.ClassReportDAO;
 import db.dao.DAO;
 import db.dao.StudentDAO;
 import db.dao.SubjectDAO;
+import db.dto.ClassReportDTO;
 import db.dto.StudentDTO;
 import db.dto.SubjectDTO;
 import db.entity.ClassReportEntity;
@@ -16,6 +17,7 @@ import manager.StudentManager;
 import manager.SubjectManager;
 import model.student.Student;
 import model.subject.Subject;
+import model.subject.SubjectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -250,13 +252,13 @@ public class Core {
         int scoreIdx = uiManager.getScoreIdx();
 
         // 점수 입력 받기
-        double score = uiManager.getScoreEdit(scoreIdx);
+        Integer score = uiManager.getScoreEdit(scoreIdx);
 
         //클래스 리포트 에 저장
         /*
         수정 필요
          */
-//        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score , scoreIdx);
+        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score , scoreIdx);
 
     }
 
@@ -271,7 +273,7 @@ public class Core {
         int scoreIdx = uiManager.getScoreIdx();
 
         // 점수 입력 받기
-        double score = uiManager.getScoreEdit(scoreIdx);
+        Integer score = uiManager.getScoreEdit(scoreIdx);
 
         //클래스 리포트 에 저장
         /*
