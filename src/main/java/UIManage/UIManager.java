@@ -109,6 +109,7 @@ public class UIManager {
 
     public  String getSubjectName(Student student){
         view.showStudentEditHeader(student.getName());
+        System.out.println(student.getSubjectList());
         for(Subject subject : student.getSubjectList()){
             view.showSubject(subject.getName());
         }

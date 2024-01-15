@@ -244,6 +244,7 @@ public class Core {
 
         // id를 통해 student 객체를 받음
         Student student = getStudentById();
+        System.out.println(student.getName());
 
         // 이 학생의 어떤 과목을 받고 싶은지 받아 오기
         Subject subject = getSubjectInStudent(student);
@@ -293,26 +294,29 @@ public class Core {
         /*
         수정 필요
          */
-        List<ClassReportEntity> classreports =  classReportManager.getReportBySession(student.getId(), subject.getId(), subject.getType());
-
-        uiManager.showScoreList(classreports);
+//        List<ClassReportEntity> classreports =  classReportManager.getReportBySession(student.getId(), subject.getId(), subject.getType());
+//
+//        uiManager.showScoreList(classreports);
     }
 
     private Student getStudentById() {
 
         //user 에게 점수를 등록할 학생의 id 를 입력 받는다.
-        Long StudentId = uiManager.getStudentId();
+        Long studentId = uiManager.getStudentId();
+//
+        Student student;
 
         //studentId가 유효 한지 확인 하기
-        // todo
-        if(studentManager.isValidStudentId(StudentId)){
-            //id를 통해 학생 객체 받아 오기
-            return studentManager.getByStudent(StudentId);
+        while(!studentManager.isValidStudentId(studentId)){
+            studentId = uiManager.getStudentId();
         }
+        student = studentManager.getByStudent(studentId);
+        return student;
 
     }
 
     private Subject getSubjectInStudent(Student student) {
+        System.out.println(student.getSubjectList());
         String subjectName = uiManager.getSubjectName(student);
         List<Subject> subjectList = student.getSubjectList();
         Subject subject = null;
