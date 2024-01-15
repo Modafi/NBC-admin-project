@@ -37,7 +37,7 @@ public class ClassReportManager {
         dao.updateScore(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
     }
 
-    public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
-        return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
+    public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId){
+        return dao.getReportsBySession(studentId, subjectId);
     }
 }
