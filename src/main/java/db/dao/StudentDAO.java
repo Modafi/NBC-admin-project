@@ -18,7 +18,7 @@ public class StudentDAO implements DAO<StudentDTO, Student>{
     @Override
     public Student save(StudentDTO dto){
         StudentEntity entity = studentDB.save(dto);
-        return new Student(entity.getId(), entity.getName());
+        return new Student(entity.getId(), entity.getName(), entity.getSubjectList());
     }
 
     @Override

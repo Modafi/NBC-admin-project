@@ -22,4 +22,8 @@ public class StudentEntity {
     public String getName() {
         return name;
     }
+
+    public List<Subject> getSubjectList() {
+        return subjectList;
+    }
 }
