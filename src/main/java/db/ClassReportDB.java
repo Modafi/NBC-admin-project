@@ -2,7 +2,6 @@ package db;
 
 import db.dto.ClassReportDTO;
 import db.entity.ClassReportEntity;
-import model.classreporty.ClassReport;
 
 import java.util.*;
 
@@ -17,7 +16,6 @@ public class ClassReportDB {
                 dto.getSubjectId(),
                 dto.getSubjectType().name(),
                 dto.getScore(),
-                dto.getGrade().name(),
                 dto.getRound()
         );
 
@@ -52,7 +50,6 @@ public class ClassReportDB {
                 originClassReportEntity.getSubjectId(),
                 originClassReportEntity.getSubjectType(),
                 dto.getScore(),
-                dto.getGrade().name(),
                 dto.getRound()
         );
 

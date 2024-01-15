@@ -256,7 +256,7 @@ public class Core {
         /*
         수정 필요
          */
-//        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+//        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score , scoreIdx);
 
     }
 
@@ -277,7 +277,7 @@ public class Core {
         /*
         수정 필요
          */
-//        classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+        classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
     }
 
     private void showScore() {
@@ -301,15 +301,13 @@ public class Core {
         //user 에게 점수를 등록할 학생의 id 를 입력 받는다.
         Long StudentId = uiManager.getStudentId();
 
-
         //studentId가 유효 한지 확인 하기
-//        if(studentManager.validcheck(id)){
-//            sa
-//        }
+        // todo
+        if(studentManager.isValidStudentId(StudentId)){
+            //id를 통해 학생 객체 받아 오기
+            return studentManager.getByStudent(StudentId);
+        }
 
-        //id를 통해 학생 객체 받아 오기
-
-        return studentManager.getByStudent(StudentId);
     }
 
     private Subject getSubjectInStudent(Student student) {

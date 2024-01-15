@@ -8,7 +8,6 @@ import model.classreporty.ClassReport;
 import model.classreporty.Grade;
 import model.subject.SubjectType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClassReportManager {
@@ -18,12 +17,8 @@ public class ClassReportManager {
         this.dao = dao;
     }
 
-//    public void addClassReport(Long studentId, Long subjectId, SubjectType subjectType, Integer score, Grade grade, long round){
-//        dao.save(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
-//    }
-
-    public void addClassReport(Long studentId, Long subjectId, SubjectType subjectType, Double score, long round){
-//        dao.save(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
+    public void addClassReport(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
+        dao.save(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
     }
 
     public ClassReport getClassReport(Long id){
@@ -38,21 +33,11 @@ public class ClassReportManager {
         dao.deleteById(id);
     }
 
-//    public void updateScore(Long studentId, Long subjectId, SubjectType subjectType, Integer score, Grade grade, long round){
-//        dao.updateScore(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
-//    }
-
-    public void updateScore(Long studentId, Long subjectId, SubjectType subjectType, Double score, long round){
-//        dao.updateScore(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
+    public void updateScore(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
+        dao.updateScore(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
     }
 
-//    public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType, Integer score, Grade grade, long round){
-//        return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
-//    }
-
-    public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType){
-//        return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, grade, round));
-        List<ClassReportEntity> lists = new ArrayList<>()
-;        return lists;
+    public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
+        return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
     }
 }

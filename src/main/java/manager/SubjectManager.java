@@ -24,25 +24,7 @@ public class SubjectManager {
     }
 
     public List<Subject> getAllSubject(){
-        //이거는 나중에 삭제 하고, 데이터 베이스 에 가져 올 수 있게
-        List<Subject> subjectList  = new ArrayList<>();
-
-        subjectList.add(new Subject(1L,"자바", "REQUIRED"));
-        subjectList.add(new Subject(1L,"파이썬", "REQUIRED"));
-        subjectList.add(new Subject(1L,"자바스크립트", "REQUIRED"));
-        subjectList.add(new Subject(1L,"장고", "REQUIRED"));
-        subjectList.add(new Subject(1L,"스프링", "REQUIRED"));
-        subjectList.add(new Subject(1L,"Next.js", "REQUIRED"));
-
-        // Optional
-        subjectList.add(new Subject(1L,"레디스", "OPTIONAL"));
-        subjectList.add(new Subject(1L,"카프카", "OPTIONAL"));
-        subjectList.add(new Subject(1L,"오픈텔레메트리", "OPTIONAL"));
-        subjectList.add(new Subject(1L,"도커", "OPTIONAL"));
-        subjectList.add(new Subject(1L,"쿠버네티스", "OPTIONAL"));
-
-        return subjectList;
-//        return dao.getList();
+        return dao.getList();
     }
 
     /*

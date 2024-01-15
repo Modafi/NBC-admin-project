@@ -12,7 +12,7 @@ public class View {
                     
                     1. 수강생 관리
                     2. 점수 관리
-                    그 외의 입력. 프로그램 종료
+                    3. 프로그램 종료
                     """);
     }
     public void showStudentMenu(){
@@ -22,7 +22,7 @@ public class View {
                     
                     1. 수강생 등록
                     2. 수강생 목록 조회
-                    그 외의 입력. 메인 화면 이동
+                    3. 메인 화면 이동
                     """);
     }
     public void showScoreMenu() {
@@ -33,7 +33,7 @@ public class View {
                     1. 수강생의 과목별 시험 회차 및 점수 등록
                     2. 수강생의 과목별 회차 점수 수정
                     3. 수강생의 특정 과목 회차별 등급 조회
-                    그 외의 입력. 메인 화면 이동
+                    3. 메인 화면 이동
                     """);
     }
 

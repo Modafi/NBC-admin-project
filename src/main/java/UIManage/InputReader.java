@@ -4,18 +4,25 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputReader {
-    private static final String stringInputExceptionMessage = "잘못된 입력입니다.다시 입력해주세요 :";
+    private static final String STRING_INPUT_EXCEPTION_MESSAGE = "잘못된 입력입니다.다시 입력해주세요 :";
     public static int getOptionNumber(int numbersOfOptions) {
         Scanner sc = new Scanner(System.in);
         int num;
 
-        try{
-            num = sc.nextInt();
-        }catch(InputMismatchException i){
-            return 0;
+        while(true){
+            try{
+                num = sc.nextInt();
+                if(num>numbersOfOptions||num<0){
+                    throw new InputMismatchException();
+                }
+                return num;
+            }catch(InputMismatchException i){
+                System.out.print(STRING_INPUT_EXCEPTION_MESSAGE);
+            }
         }
 
-        return num;
+
+
     }
 
     public static String getStudentName() {
@@ -66,7 +73,7 @@ public class InputReader {
         try{
             num = sc.nextLong();
         }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
+            System.out.print(STRING_INPUT_EXCEPTION_MESSAGE);
             num = getStudentId();
         }
 
@@ -83,7 +90,7 @@ public class InputReader {
                 throw new InputMismatchException();
             }
         }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
+            System.out.print(STRING_INPUT_EXCEPTION_MESSAGE);
             score = getStudentId();
         }
 
@@ -100,7 +107,7 @@ public class InputReader {
                 throw new InputMismatchException();
             }
         }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
+            System.out.print(STRING_INPUT_EXCEPTION_MESSAGE);
             idx = getScoreIdx();
         }
 

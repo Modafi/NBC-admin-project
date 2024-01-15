@@ -12,20 +12,8 @@ public class StudentDB {
     private static final Map<Long, StudentEntity> store = new HashMap<>();
     private long sequence = 1L;
 
-    public StudentDB(){
-        initData();
-    }
-
-    private void initData() {
-        save(new StudentDTO("메타몽"));
-        save(new StudentDTO("모다피"));
-        save(new StudentDTO("리자몽"));
-        save(new StudentDTO("찌리리공"));
-        save(new StudentDTO("팸텀"));
-    }
-
     public StudentEntity save(StudentDTO dto){
-        StudentEntity studentEntity = new StudentEntity(sequence++, dto.getName());
+        StudentEntity studentEntity = new StudentEntity(sequence++, dto.getName(), dto.getSubjectList());
         store.put(studentEntity.getId(), studentEntity);
         return studentEntity;
     }
