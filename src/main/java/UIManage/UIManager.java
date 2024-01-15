@@ -65,7 +65,6 @@ public class UIManager {
     public boolean askContinue() {
         view.AskContinue();
         boolean oneIsTrue = InputReader.getBoolean();
-        System.out.println(oneIsTrue);
         return oneIsTrue;
     }
 

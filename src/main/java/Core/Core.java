@@ -228,7 +228,6 @@ public class Core {
 
         // id를 통해 student 객체를 받음
         Student student = getStudentById();
-        System.out.println(student.getName());
 
         // 이 학생의 어떤 과목을 받고 싶은지 받아 오기
         Subject subject = getSubjectInStudent(student);
@@ -258,7 +257,12 @@ public class Core {
         Integer score = uiManager.getScoreEdit(scoreIdx);
 
         //클래스 리포트 에 저장
-        classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+        try{
+            classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+        }catch (IllegalArgumentException e){
+            System.out.println("점수가 등록된 적이 없는 회차입니다.");
+        }
+
     }
 
     private void showScore() {
@@ -294,7 +298,6 @@ public class Core {
     }
 
     private Subject getSubjectInStudent(Student student) {
-        System.out.println(student.getSubjectList());
         uiManager.showStudentsSubject(student);
         String subjectName = uiManager.getSubjectName(student);
 

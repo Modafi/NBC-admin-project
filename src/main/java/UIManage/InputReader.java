@@ -87,6 +87,10 @@ public class InputReader {
             try{
                 score = sc.nextInt();
 
+                if(score>100||score<0){
+                    throw new InputMismatchException();
+                }
+
                 return score;
 
             }catch(InputMismatchException i){

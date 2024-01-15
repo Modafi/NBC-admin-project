@@ -99,7 +99,7 @@ public class View {
         System.out.print(ScoreIdx+"회차의 점수를 입력하세요:");
     }
     public void showScoreIsFull(String subjectName) {
-        System.out.print(subjectName+" 과목은 점수가 모두 등록되었습니다.");
+        System.out.println(subjectName+" 과목은 점수가 모두 출력됐습니다..");
     }
 
     /*
