@@ -121,7 +121,7 @@ public class UIManager {
         return InputReader.getScoreIdx();
     }
 
-    public  double getScoreEdit(int ScoreIdx){
+    public  Integer getScoreEdit(int ScoreIdx){
         view.orderToTypeScore(ScoreIdx);
         return InputReader.getScore();
     }

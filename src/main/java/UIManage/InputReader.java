@@ -80,9 +80,9 @@ public class InputReader {
         return num;
     }
 
-    public static double getScore() {
+    public static Integer getScore() {
         Scanner sc = new Scanner(System.in);
-        double score;
+        Integer score;
 
         try{
             score = sc.nextInt();
@@ -91,7 +91,7 @@ public class InputReader {
             }
         }catch(InputMismatchException i){
             System.out.print(STRING_INPUT_EXCEPTION_MESSAGE);
-            score = getStudentId();
+            score = getScore();
         }
 
         return score;
