@@ -44,6 +44,8 @@ NBC 어드민 서비스에서는 트랙을 학습하고 있는 수강생을 관�
 
 - 진행사항
   - Github [Projects](https://github.com/users/Modafi/projects/4)를 통해서 진행 사항을 관리
+   ![Screenshot 2024-01-15 at 2 28 51 PM](https://github.com/Modafi/NBC-admin-project/assets/155048724/1598733e-c7b5-4404-9d6a-668306f89d99)
+
 - Git Convention
   - 이슈관리를 위해서 커밋은 이슈번호를 포함해서 작성
     - `[issue number] [commit message]`
@@ -55,6 +57,9 @@ NBC 어드민 서비스에서는 트랙을 학습하고 있는 수강생을 관�
 
 
 ## 클래스 다이어그램
+<div align="center">  
+  <img src="https://github.com/Modafi/NBC-admin-project/assets/155048724/2eeed2e3-a18d-4354-bd3a-ea3f83f9c34e" width=700 />
+</div>
 
 
 ## 서비스 UI
