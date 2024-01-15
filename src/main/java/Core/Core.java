@@ -1,8 +1,13 @@
 package Core;
 
 import UIManage.UIManager;
+import db.ClassReportDB;
+import db.StudentDB;
+import db.SubjectDB;
 import db.dao.ClassReportDAO;
 import db.dao.DAO;
+import db.dao.StudentDAO;
+import db.dao.SubjectDAO;
 import db.dto.StudentDTO;
 import db.dto.SubjectDTO;
 import db.entity.ClassReportEntity;
@@ -21,15 +26,18 @@ import static model.subject.SubjectType.REQUIRED;
 public class Core {
     private static Boolean flag = true;
 
-    /*
-    - 각 manager 를 생성 하려면 DAO 가 생성자 매개 변수로 들어 가야 하는데, 어떻게 할지 몰라서 일단 Core 필드 안에 DAO 를 생성 해놓고 넣는 방식 입니다.
-     */
-    private static DAO<StudentDTO, Student> daoStudent;
-    private static ClassReportDAO daoClassReport;
-    private static DAO<SubjectDTO, Subject> daoSubject;
+    private static final SubjectDB subjectDB = new SubjectDB();
+    private static final StudentDB studentDB = new StudentDB();
+    private static final ClassReportDB classReportDB = new ClassReportDB();
+
+    private static final DAO<StudentDTO, Student> daoStudent = new StudentDAO(studentDB);
+    private static final ClassReportDAO daoClassReport = new ClassReportDAO(classReportDB);
+    private static final DAO<SubjectDTO, Subject> daoSubject = new SubjectDAO(subjectDB);
+
     private static final StudentManager studentManager = new StudentManager(daoStudent);
     private static final ClassReportManager classReportManager = new ClassReportManager(daoClassReport);
     private static final SubjectManager subjectManager = new SubjectManager(daoSubject);
+
     private static final UIManager uiManager = new UIManager();
 
 
@@ -134,7 +142,9 @@ public class Core {
                 }else if(validToFinish(subjectList)){ // 5. 필수 과목 3개, 선택 과목 2개 이상일 경우
 
                     // 6. 또 할건지 물어봐
-                    flag = uiManager.askContinue();
+                    if(!uiManager.askContinue()){
+                        break;
+                    }
 
                 }
 
@@ -250,7 +260,7 @@ public class Core {
         /*
         수정 필요
          */
-        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+//        classReportManager.addClassReport(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
 
     }
 
@@ -271,7 +281,7 @@ public class Core {
         /*
         수정 필요
          */
-        classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
+//        classReportManager.updateScore(student.getId(), subject.getId(), subject.getType(), score  , scoreIdx);
     }
 
     private void showScore() {
@@ -297,7 +307,9 @@ public class Core {
 
 
         //studentId가 유효 한지 확인 하기
-
+//        if(studentManager.validcheck(id)){
+//            sa
+//        }
 
         //id를 통해 학생 객체 받아 오기
 
