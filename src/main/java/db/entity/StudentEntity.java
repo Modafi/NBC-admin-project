@@ -1,6 +1,5 @@
 package db.entity;
 
-import model.student.Student;
 import model.subject.Subject;
 
 import java.util.List;

@@ -1,8 +1,6 @@
 package db.dao;
 
-import db.StudentDB;
 import db.SubjectDB;
-import db.dto.StudentDTO;
 import db.dto.SubjectDTO;
 import db.entity.SubjectEntity;
 import model.subject.Subject;
