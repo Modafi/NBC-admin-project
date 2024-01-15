@@ -12,8 +12,8 @@ import java.util.List;
 public class SubjectDAO implements DAO<SubjectDTO, Subject> {
     private final SubjectDB subjectDB;
 
-    public SubjectDAO(StudentDB studentDB) {
-        this.subjectDB = new SubjectDB();
+    public SubjectDAO(SubjectDB subjectDB) {
+        this.subjectDB = subjectDB;
     }
 
 

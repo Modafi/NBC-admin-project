@@ -2,7 +2,6 @@ package db;
 
 import db.dto.ClassReportDTO;
 import db.entity.ClassReportEntity;
-import model.classreporty.ClassReport;
 
 import java.util.*;
 
