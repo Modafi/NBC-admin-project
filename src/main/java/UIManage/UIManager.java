@@ -161,4 +161,8 @@ public class UIManager {
 
     public void showScoreList(List<ClassReportEntity> classreports) {
     }
+
+    public void showNotValidStudent() {
+        view.showNotValidStudentId();
+    }
 }

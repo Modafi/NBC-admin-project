@@ -303,11 +303,12 @@ public class Core {
 
         //user 에게 점수를 등록할 학생의 id 를 입력 받는다.
         Long studentId = uiManager.getStudentId();
-//
+
         Student student;
 
         //studentId가 유효 한지 확인 하기
         while(!studentManager.isValidStudentId(studentId)){
+            uiManager.showNotValidStudent();
             studentId = uiManager.getStudentId();
         }
         student = studentManager.getByStudent(studentId);

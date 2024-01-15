@@ -77,13 +77,10 @@ public class View {
      */
 
     public void orderToTypeStudentId() {
-        System.out.println("메인 메뉴로 나가고 싶으시면 0번을, " +
-                "아니면 관리할 수강생의 Id를 입력하세요 : ");
+        System.out.println("관리할 수강생의 Id를 입력하세요 : ");
     }
     public void showNotValidStudentId() {
-        System.out.print("유효하지 않는 수강생 ID 입니다." +
-                "\n메인 메뉴로 나가고 싶으시면 0번을, " +
-                "아니면 관리할 수강생의 Id를 입력하세요:");
+        System.out.println("없는 놈이다 이놈아!! by 용수");
     }
 
     public void showStudentEditHeader(String studentName) {
