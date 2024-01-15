@@ -65,7 +65,7 @@ public class ClassReportDAO implements DAO<ClassReportDTO, ClassReport> {
         classReportDB.updateById(dto);
     }
 
-    public List<ClassReportEntity> getReportsBySession(ClassReportDTO dto){
-        return classReportDB.getReports(dto.getStudentId(), dto.getSubjectId());
+    public List<ClassReportEntity> getReportsBySession(Long studentId, Long subjectId){
+        return classReportDB.getReports(studentId, subjectId);
     }
 }

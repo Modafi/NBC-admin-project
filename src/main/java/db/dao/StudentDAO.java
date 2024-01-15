@@ -30,7 +30,7 @@ public class StudentDAO implements DAO<StudentDTO, Student>{
         }
 
         StudentEntity studentEntity = entity.get();
-        return new Student(studentEntity.getId(), studentEntity.getName());
+        return new Student(studentEntity.getId(), studentEntity.getName(), studentEntity.getSubjectList());
     }
 
     @Override

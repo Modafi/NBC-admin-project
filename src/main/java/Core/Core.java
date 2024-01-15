@@ -296,6 +296,9 @@ public class Core {
          */
 //        List<ClassReportEntity> classreports =  classReportManager.getReportBySession(student.getId(), subject.getId(), subject.getType());
 //
+//        public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
+//            return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
+//        }
 //        uiManager.showScoreList(classreports);
     }
 
@@ -318,16 +321,42 @@ public class Core {
 
     private Subject getSubjectInStudent(Student student) {
         System.out.println(student.getSubjectList());
+        uiManager.showStudentsSubject(student);
         String subjectName = uiManager.getSubjectName(student);
-        List<Subject> subjectList = student.getSubjectList();
+
+        while(!doStudentHaveSubject(subjectName, student)){
+            uiManager.showNotValidSubject();
+            subjectName = uiManager.getSubjectName(student);
+        }
+
         Subject subject = null;
-        
+
+        List<Subject> subjectList = student.getSubjectList();
+
         for(Subject sj : subjectList){
+
             if(sj.getName().equals(subjectName)){
                 subject = sj;
             }
+
         }
+
 
         return subject;
     }
+
+    private boolean doStudentHaveSubject(String subjectName, Student student) {
+        List<Subject> subjectList = student.getSubjectList();
+
+        for(Subject sj : subjectList){
+
+            if(sj.getName().equals(subjectName)){
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
 }

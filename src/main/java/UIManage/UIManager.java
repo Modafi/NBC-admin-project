@@ -108,11 +108,7 @@ public class UIManager {
     }
 
     public  String getSubjectName(Student student){
-        view.showStudentEditHeader(student.getName());
-        System.out.println(student.getSubjectList());
-        for(Subject subject : student.getSubjectList()){
-            view.showSubject(subject.getName());
-        }
+
         view.orderToTypeSubject();
         return InputReader.getSubjectName();
     }
@@ -164,5 +160,17 @@ public class UIManager {
 
     public void showNotValidStudent() {
         view.showNotValidStudentId();
+    }
+
+    public void showStudentsSubject(Student student) {
+        view.showStudentEditHeader(student.getName());
+        for(Subject subject : student.getSubjectList()){
+            view.showSubject(subject.getName());
+        }
+
+    }
+
+    public void showNotValidSubject() {
+        view.showNotValidSubject();
     }
 }
