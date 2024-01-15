@@ -6,6 +6,7 @@ import db.dto.StudentDTO;
 import db.entity.StudentEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public class StudentDAO implements DAO<StudentDTO, Student>{
     private final StudentDB studentDB;
@@ -22,8 +23,14 @@ public class StudentDAO implements DAO<StudentDTO, Student>{
 
     @Override
     public Student getByID(Long id){
-        StudentEntity entity = studentDB.getById(id);
-        return new Student(entity.getId(), entity.getName());
+        Optional<StudentEntity> entity = studentDB.getById(id);
+
+        if(entity.isEmpty()){
+            return null;
+        }
+
+        StudentEntity studentEntity = entity.get();
+        return new Student(studentEntity.getId(), studentEntity.getName());
     }
 
     @Override

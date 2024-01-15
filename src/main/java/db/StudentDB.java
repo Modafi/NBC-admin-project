@@ -3,10 +3,7 @@ package db;
 import db.dto.StudentDTO;
 import db.entity.StudentEntity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StudentDB {
     private static final Map<Long, StudentEntity> store = new HashMap<>();
@@ -18,8 +15,9 @@ public class StudentDB {
         return studentEntity;
     }
 
-    public StudentEntity getById(Long id){
-        return store.get(id);
+    public Optional<StudentEntity> getById(Long id){
+        Optional<StudentEntity> studentEntity = Optional.ofNullable(store.get(id));
+        return studentEntity;
     }
 
     public List<StudentEntity> getStudents(){
