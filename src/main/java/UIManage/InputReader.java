@@ -11,12 +11,8 @@ public class InputReader {
 
         try{
             num = sc.nextInt();
-            if(num>numbersOfOptions&&num>0){
-                throw new InputMismatchException();
-            }
         }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
-            num = getOptionNumber(numbersOfOptions);
+            return 0;
         }
 
         return num;
@@ -26,12 +22,12 @@ public class InputReader {
         Scanner sc = new Scanner(System.in);
         String studentName;
 
-        try{
+//        try{
             studentName = sc.next();
-        }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
-            studentName = getStudentName();
-        }
+//        }catch(InputMismatchException i){
+//            System.out.print(stringInputExceptionMessage);
+//            studentName = getStudentName();
+//        }
 
         return studentName;
     }
@@ -40,12 +36,12 @@ public class InputReader {
         Scanner sc = new Scanner(System.in);
         String subjectName;
 
-        try{
+//        try{
             subjectName = sc.next();
-        }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
-            subjectName = getStudentName();
-        }
+//        }catch(InputMismatchException i){
+//            System.out.print(stringInputExceptionMessage);
+//            subjectName = getStudentName();
+//        }
 
         return subjectName;
     }
@@ -58,11 +54,9 @@ public class InputReader {
             oneIsTrue = (sc.next().equals("1"));
             return oneIsTrue;
         }catch(InputMismatchException i){
-            System.out.print(stringInputExceptionMessage);
-            oneIsTrue = getBoolean();
+            return false;
         }
 
-        return oneIsTrue;
     }
 
     public static Long getStudentId() {

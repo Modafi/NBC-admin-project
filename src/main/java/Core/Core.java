@@ -59,7 +59,7 @@ public class Core {
                 case 2:
                     scoreOption();
                     break;
-                case 3:
+                default:
                     finishOption();
                     break;
             }
@@ -114,10 +114,6 @@ public class Core {
         String studentName = uiManager.getNewStudentName();
 
         // 2. 모든 subject 를 가져옴
-        /*
-        getAllSubject 에서 모든 과목 리스트 를 가져 와야 하는데, 오류가 납니다.
-        일단 조치는 했는데, 어떻게 리스트 를 가져올 지 물어볼 것.
-         */
         List<Subject> subjects = subjectManager.getAllSubject();
 
         // 3. 과목 리스트 를 생성
@@ -156,8 +152,8 @@ public class Core {
         }
 
         /*
-        저장이 안돼요..
-        일단 대처, 수정 해야 함
+        저장을 할 때,
+        subjectList로
          */
         studentManager.addUser(studentName, subjectList);
         uiManager.showStudentsAddIsOver();
