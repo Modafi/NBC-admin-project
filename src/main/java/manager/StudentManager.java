@@ -26,6 +26,11 @@ public class StudentManager {
         return dao.getByID(id);
     }
 
+    public boolean isValidStudentId(Long id) {
+        return dao.getByID(id) != null;
+    }
+
+
     /*
     public void deleteStudent(Long id){
         dao.deleteById(id);
