@@ -156,6 +156,12 @@ public class UIManager {
     }
 
     public void showScoreList(List<ClassReportEntity> classreports) {
+        view.showScoreHeader();
+
+        for(ClassReportEntity report: classreports){
+            view.showReport(report);
+        }
+
     }
 
     public void showNotValidStudent() {

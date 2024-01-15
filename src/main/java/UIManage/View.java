@@ -1,5 +1,7 @@
 package UIManage;
 
+import db.entity.ClassReportEntity;
+
 public class View {
     public void orderToTypeOptionNumber(){
         System.out.print("원하시는 관리 항목의 번호를 입력하세요 :");
@@ -129,5 +131,15 @@ public class View {
         System.out.print("""
                    ==================================
                    종료를 원하시면 1번을 눌러주세요:""");
+    }
+
+    public void showScoreHeader() {
+        System.out.println("""
+                   ==================================
+                   회차별 성적 리스트입니다.""");
+    }
+
+    public void showReport(ClassReportEntity report) {
+        System.out.println(report.getRound() +".  "+report.getScore());
     }
 }

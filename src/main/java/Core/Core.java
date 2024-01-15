@@ -294,12 +294,13 @@ public class Core {
         /*
         수정 필요
          */
-//        List<ClassReportEntity> classreports =  classReportManager.getReportBySession(student.getId(), subject.getId(), subject.getType());
+        List<ClassReportEntity> classreports =  classReportManager.getReportBySession(student.getId(), subject.getId());
+        System.out.println(classreports);
 //
 //        public List<ClassReportEntity> getReportBySession(Long studentId, Long subjectId, SubjectType subjectType, Integer score, long round){
 //            return dao.getReportsBySession(new ClassReportDTO(studentId, subjectId, subjectType, score, round));
 //        }
-//        uiManager.showScoreList(classreports);
+        uiManager.showScoreList(classreports);
     }
 
     private Student getStudentById() {
